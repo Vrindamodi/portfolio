@@ -70,8 +70,8 @@ const ChatWithHerbPage = ({currentPage, herbMood, setHerbMood}) => {
     }, [chatMessages]);
 
     return (
-      <div className="min-h-screen bg-gradient-to-br from-purple-200 via-pink-200 to-blue-200 pt-24 pb-16 px-4">
-        <div className="max-w-4xl mx-auto h-[calc(100vh-200px)] flex flex-col">
+      <div className="h-screen bg-gradient-to-br from-purple-200 via-pink-200 to-blue-200 p-4 sm:p-6 md:p-8 flex items-center justify-center">
+        <div className="max-w-6xl mx-auto h-full flex flex-col w-full">
           <motion.div
             initial={{ y: -50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -105,10 +105,10 @@ const ChatWithHerbPage = ({currentPage, herbMood, setHerbMood}) => {
                   transition={{ type: "spring" }}
                   className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}
                 >
-                  <div className={`flex gap-3 max-w-[80%] ${msg.sender === 'user' ? 'flex-row-reverse' : 'flex-row'}`}>
+                  <div className={`flex items-start gap-3 max-w-[80%] ${msg.sender === 'user' ? 'flex-row-reverse' : 'flex-row'}`}>
                     {msg.sender === 'herb' && (
                       <div className="flex-shrink-0">
-                        <div className="w-10 h-10">
+                        <div className="">
                           <HerbAvatar mood="happy" />
                         </div>
                       </div>
@@ -139,7 +139,7 @@ const ChatWithHerbPage = ({currentPage, herbMood, setHerbMood}) => {
                   className="flex justify-start"
                 >
                   <div className="flex gap-3">
-                    <div className="w-10 h-10">
+                    <div className="">
                       <HerbAvatar mood="thinking" />
                     </div>
                     <div className="bg-gradient-to-r from-blue-100 to-purple-100 rounded-2xl p-4">
