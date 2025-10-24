@@ -13,9 +13,7 @@ const VrindaPortfolio = () => {
   const [herbMessage, setHerbMessage] = useState("Hi, I'm Herb — your AI Assistant. Welcome to Vrinda's Portfolio!");
   const [herbMood, setHerbMood] = useState('happy');
   const [sparkles, setSparkles] = useState([]);
-  const [contactForm, setContactForm] = useState({ name: '', email: '', message: '' });
-  const [chatMessages, setChatMessages] = useState([]);
-  const [chatInput, setChatInput] = useState('');
+
   const [isTyping, setIsTyping] = useState(false);
 
   useEffect(() => {
@@ -23,14 +21,6 @@ const VrindaPortfolio = () => {
       setTimeout(() => setHerbVisible(true), 500);
     }
   }, [showWelcome]);
-
-  useEffect(() => {
-    if (currentPage === 'chat' && chatMessages.length === 0) {
-      setChatMessages([
-        { sender: 'herb', text: "Hey there! I'm Herb, Vrinda's AI assistant! Ask me anything about her work, skills, or just chat! 💜" }
-      ]);
-    }
-  }, [currentPage, chatMessages.length]);
 
   const generateSparkles = () => {
     const newSparkles = Array.from({ length: 20 }, (_, i) => ({
@@ -42,47 +32,6 @@ const VrindaPortfolio = () => {
     }));
     setSparkles(newSparkles);
     setTimeout(() => setSparkles([]), 3000);
-  };
-
-  const handleChatSubmit = (e) => {
-    e.preventDefault();
-    if (!chatInput.trim()) return;
-
-    const userMessage = { sender: 'user', text: chatInput };
-    setChatMessages(prev => [...prev, userMessage]);
-    setChatInput('');
-    setIsTyping(true);
-
-    const responses = {
-      skills: "Vrinda is skilled in JavaScript, Python, Java, React, Angular, Node.js, Django, and various databases! She's a full-stack powerhouse! 💪",
-      projects: "She's built some amazing stuff! AI task managers, e-commerce platforms, and analytics dashboards. Want to know more about a specific one?",
-      experience: "Vrinda is currently in her first year of MCA and has been coding since high school. She's passionate about creating beautiful web experiences!",
-      contact: "You can reach Vrinda through the contact form, or connect on LinkedIn, GitHub, or any of her social media! She'd love to hear from you! 📧",
-      hello: "Hey! Great to chat with you! What would you like to know about Vrinda? 😊",
-      hi: "Hello there! I'm here to help! Ask me about Vrinda's skills, projects, or anything else!",
-      coffee: "Oh yes! Vrinda runs on coffee! ☕ It's her coding fuel. Can't write great code without it!",
-      mca: "She's in her first year of MCA (Master of Computer Applications) and absolutely loving it! Learning new things every day! 📚",
-      default: "That's a great question! Vrinda is passionate about full-stack development and loves creating interactive experiences. Want to know something specific about her skills or projects?"
-    };
-
-    setTimeout(() => {
-      setIsTyping(false);
-      const input = chatInput.toLowerCase();
-      let response = responses.default;
-
-      if (input.includes('skill') || input.includes('tech')) response = responses.skills;
-      else if (input.includes('project')) response = responses.projects;
-      else if (input.includes('experience') || input.includes('work')) response = responses.experience;
-      else if (input.includes('contact') || input.includes('reach')) response = responses.contact;
-      else if (input.includes('hello') || input.includes('hey')) response = responses.hello;
-      else if (input.includes('hi')) response = responses.hi;
-      else if (input.includes('coffee')) response = responses.coffee;
-      else if (input.includes('mca') || input.includes('study')) response = responses.mca;
-
-      setChatMessages(prev => [...prev, { sender: 'herb', text: response }]);
-      setHerbMood('excited');
-      setTimeout(() => setHerbMood('happy'), 1000);
-    }, 1000 + Math.random() * 1000);
   };
 
   
@@ -2241,6 +2190,7 @@ const ExperiencePage = () => {
 
   const ContactPage = () => {
     const [messageSent, setMessageSent] = useState(false);
+    const [contactForm, setContactForm] = useState({ name: '', email: '', message: '' });
 
     const handleSubmit = (e) => {
       e.preventDefault();
@@ -2478,6 +2428,59 @@ const ExperiencePage = () => {
   };
 
   const ChatWithHerbPage = () => {
+
+    const [chatInput, setChatInput] = useState('');
+    const [chatMessages, setChatMessages] = useState([]);
+
+      useEffect(() => {
+    if (currentPage === 'chat' && chatMessages.length === 0) {
+      setChatMessages([
+        { sender: 'herb', text: "Hey there! I'm Herb, Vrinda's AI assistant! Ask me anything about her work, skills, or just chat! 💜" }
+      ]);
+    }
+  }, [currentPage, chatMessages.length]);
+
+      const handleChatSubmit = (e) => {
+    e.preventDefault();
+    if (!chatInput.trim()) return;
+
+    const userMessage = { sender: 'user', text: chatInput };
+    setChatMessages(prev => [...prev, userMessage]);
+    setChatInput('');
+    setIsTyping(true);
+
+    const responses = {
+      skills: "Vrinda is skilled in JavaScript, Python, Java, React, Angular, Node.js, Django, and various databases! She's a full-stack powerhouse! 💪",
+      projects: "She's built some amazing stuff! AI task managers, e-commerce platforms, and analytics dashboards. Want to know more about a specific one?",
+      experience: "Vrinda is currently in her first year of MCA and has been coding since high school. She's passionate about creating beautiful web experiences!",
+      contact: "You can reach Vrinda through the contact form, or connect on LinkedIn, GitHub, or any of her social media! She'd love to hear from you! 📧",
+      hello: "Hey! Great to chat with you! What would you like to know about Vrinda? 😊",
+      hi: "Hello there! I'm here to help! Ask me about Vrinda's skills, projects, or anything else!",
+      coffee: "Oh yes! Vrinda runs on coffee! ☕ It's her coding fuel. Can't write great code without it!",
+      mca: "She's in her first year of MCA (Master of Computer Applications) and absolutely loving it! Learning new things every day! 📚",
+      default: "That's a great question! Vrinda is passionate about full-stack development and loves creating interactive experiences. Want to know something specific about her skills or projects?"
+    };
+
+    setTimeout(() => {
+      setIsTyping(false);
+      const input = chatInput.toLowerCase();
+      let response = responses.default;
+
+      if (input.includes('skill') || input.includes('tech')) response = responses.skills;
+      else if (input.includes('project')) response = responses.projects;
+      else if (input.includes('experience') || input.includes('work')) response = responses.experience;
+      else if (input.includes('contact') || input.includes('reach')) response = responses.contact;
+      else if (input.includes('hello') || input.includes('hey')) response = responses.hello;
+      else if (input.includes('hi')) response = responses.hi;
+      else if (input.includes('coffee')) response = responses.coffee;
+      else if (input.includes('mca') || input.includes('study')) response = responses.mca;
+
+      setChatMessages(prev => [...prev, { sender: 'herb', text: response }]);
+      setHerbMood('excited');
+      setTimeout(() => setHerbMood('happy'), 1000);
+    }, 1000 + Math.random() * 1000);
+  };
+  
     const messagesEndRef = React.useRef(null);
 
     const scrollToBottom = () => {
