@@ -36,7 +36,7 @@ const HomePage = ({ setCurrentPage }) => (
             transition={{ delay: 0.6 }}
           >
             <p>
-              I turn ideas into beautiful, interactive web experiences. Skilled in <span className="font-semibold text-purple-600">Java, SpringBoot, Python, Django, React, Node.js</span>, and modern web tools, I craft clean, efficient code with a touch of creativity.
+              I turn ideas into beautiful, interactive web experiences. Skilled in <span className="font-semibold text-purple-600">Java, SpringBoot, Python, React, Node.js</span>, and modern web tools, I craft clean, efficient code with a touch of creativity.
             </p>
             <p>
               Currently pursuing my MCA, I thrive on learning, building, and solving challenges, whether it's a sleek front-end, a robust back-end, or an entire full-stack solution.

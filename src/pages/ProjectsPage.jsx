@@ -15,7 +15,7 @@ import { Zap, Package, Database } from 'lucide-react';
         id: 2,
         title: 'E-Commerce Platform',
         description: 'Full-stack e-commerce solution with payment integration and admin dashboard',
-        tech: ['Angular', 'Django', 'MySQL', 'AWS'],
+        tech: [ 'MySQL', 'AWS'],
         color: 'from-blue-400 to-cyan-500',
         icon: Package
       },
