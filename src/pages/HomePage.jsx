@@ -55,15 +55,19 @@ const HomePage = ({ setCurrentPage }) => (
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8 }}
           >
-            <motion.button
+            <motion.a
+              href="https://drive.google.com/uc?export=download&id=1T4Y8zZWIXh6GmZ2F0gSpW4R-Q4TH0KFl"
+              download="Vrinda_Modi_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(168, 85, 247, 0.4)" }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full font-bold text-lg shadow-xl flex items-center gap-2"
+              className="px-8 py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full font-bold text-lg shadow-xl flex items-center gap-2 cursor-pointer"
               style={{ fontFamily: 'Fredoka, sans-serif' }}
             >
               <Download size={20} />
               Download Resume
-            </motion.button>
+            </motion.a>
             
             <motion.button
               whileHover={{ scale: 1.05 }}
