@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+// eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 import { Send } from 'lucide-react';
 import HerbAvatar from '../components/HerbAvatar.jsx';
@@ -18,45 +19,44 @@ const ChatWithHerbPage = ({currentPage, herbMood, setHerbMood}) => {
     }
   }, [ currentPage, chatMessages.length]);
 
-      const handleChatSubmit = (e) => {
+  const handleChatSubmit = async (e) => {
     e.preventDefault();
     if (!chatInput.trim()) return;
 
     const userMessage = { sender: 'user', text: chatInput };
     setChatMessages(prev => [...prev, userMessage]);
+    const currentChatInput = chatInput;
     setChatInput('');
     setIsTyping(true);
 
-    const responses = {
-      skills: "Vrinda is skilled in JavaScript, Python, Java, React, Angular, Node.js, Django, and various databases! She's a full-stack powerhouse! 💪",
-      projects: "She's built some amazing stuff! AI task managers, e-commerce platforms, and analytics dashboards. Want to know more about a specific one?",
-      experience: "Vrinda is currently in her first year of MCA and has been coding since high school. She's passionate about creating beautiful web experiences!",
-      contact: "You can reach Vrinda through the contact form, or connect on LinkedIn, GitHub, or any of her social media! She'd love to hear from you! 📧",
-      hello: "Hey! Great to chat with you! What would you like to know about Vrinda? 😊",
-      hi: "Hello there! I'm here to help! Ask me about Vrinda's skills, projects, or anything else!",
-      coffee: "Oh yes! Vrinda runs on coffee! ☕ It's her coding fuel. Can't write great code without it!",
-      mca: "She's in her first year of MCA (Master of Computer Applications) and absolutely loving it! Learning new things every day! 📚",
-      default: "That's a great question! Vrinda is passionate about full-stack development and loves creating interactive experiences. Want to know something specific about her skills or projects?"
-    };
+    try {
+      const response = await fetch('https://herb-be.onrender.com/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ query: currentChatInput }),
+      });
 
-    setTimeout(() => {
-      setIsTyping(false);
-      const input = chatInput.toLowerCase();
-      let response = responses.default;
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
 
-      if (input.includes('skill') || input.includes('tech')) response = responses.skills;
-      else if (input.includes('project')) response = responses.projects;
-      else if (input.includes('experience') || input.includes('work')) response = responses.experience;
-      else if (input.includes('contact') || input.includes('reach')) response = responses.contact;
-      else if (input.includes('hello') || input.includes('hey')) response = responses.hello;
-      else if (input.includes('hi')) response = responses.hi;
-      else if (input.includes('coffee')) response = responses.coffee;
-      else if (input.includes('mca') || input.includes('study')) response = responses.mca;
-
-      setChatMessages(prev => [...prev, { sender: 'herb', text: response }]);
+      const data = await response.json();
+      // Assuming the API returns a JSON object with a 'response' key
+      const herbResponse = { sender: 'herb', text: data.response };
+      
+      setChatMessages(prev => [...prev, herbResponse]);
       setHerbMood('excited');
       setTimeout(() => setHerbMood('happy'), 1000);
-    }, 1000 + Math.random() * 1000);
+
+    } catch (error) {
+      console.error('Error fetching chat response:', error);
+      const errorMessage = { sender: 'herb', text: "Sorry, I'm having a little trouble connecting. Please try again in a moment! 🔌" };
+      setChatMessages(prev => [...prev, errorMessage]);
+    } finally {
+      setIsTyping(false);
+    }
   };
   
     const messagesEndRef = React.useRef(null);
