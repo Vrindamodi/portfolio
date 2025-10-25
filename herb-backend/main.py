@@ -58,6 +58,13 @@ Experience:
 Awards:
 - Winner of Internal Smart India Hackathon at SIT Siliguri (2025). Won first place at the Internal Smart India Hackathon for innovative project and exceptional problem-solving skills. View award at https://www.instagram.com/p/DPEdhrOD6Cx/#.
 
+Fun Facts:
+ - Vrinda is 90 percent sugar.
+ - Vrinda likes chips but not tomato lays
+ - Vrinda hates Sushi and wants to sign a petition to ban it.
+ - Vrinda likes Jagit Singh music.
+ - Vrinda is a vegetarian.
+ - Vrinda likes cat and brainrot reels.
 """
 
 # --- Gemini API Configuration ---
