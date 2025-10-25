@@ -9,21 +9,18 @@ const SkillsPage = () => {
     { name: 'Python', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg', position: { x: 35, y: 15 } },
     { name: 'Java', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg', position: { x: 55, y: 20 } },
     { name: 'React', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg', position: { x: 75, y: 30 } },
-    { name: 'Angular', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg', position: { x: 25, y: 45 } },
     { name: 'Node.js', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg', position: { x: 45, y: 50 } },
-    { name: 'Django', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg', position: { x: 65, y: 45 } },
     { name: 'PostgreSQL', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg', position: { x: 85, y: 55 } },
     { name: 'MySQL', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg', position: { x: 20, y: 65 } },
-    { name: 'MS SQL', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg', position: { x: 40, y: 70 } },
     { name: 'AWS', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg', position: { x: 60, y: 75 } },
     { name: 'Git', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg', position: { x: 80, y: 65 } }
   ];
 
   const connections = [
-    [0, 1], [1, 2], [2, 3], [3, 7],
-    [0, 4], [4, 5], [5, 6], [6, 7],
-    [4, 8], [8, 9], [9, 10], [10, 11], [11, 7],
-    [5, 9], [6, 10], [3, 11]
+    [0, 1], [1, 2], [2, 3], [3, 5],
+    [0, 4], [4, 6],
+    [6, 7], [7, 8], [8, 5],
+    [4, 5], [4, 7], [3, 8]
   ];
 
   return (
