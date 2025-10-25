@@ -13,7 +13,7 @@ PORTFOLIO_DATA = """
 Vrinda Modi - Full Stack Developer & MCA Student
 
 Summary:
-I turn ideas into beautiful, interactive web experiences. Skilled in Java, SpringBoot, Python, Django, React, Node.js, and modern web tools, I craft clean, efficient code with a touch of creativity.
+I turn ideas into beautiful, interactive web experiences. Skilled in Java, SpringBoot, Python, React, Node.js, and modern web tools, I craft clean, efficient code with a touch of creativity.
 
 Currently pursuing my MCA, I thrive on learning, building, and solving challenges, whether it's a sleek front-end, a robust back-end, or an entire full-stack solution.
 
@@ -43,8 +43,8 @@ Socials:
  
 Skills:
 - Programming Languages: Java, Python, JavaScript, TypeScript, HTML, CSS.
-- Frameworks & Libraries: Django, React, Node.js, Express.js, Angular.
-- Databases: MongoDB, MySQL, PostgreSQL.
+- Frameworks & Libraries: React, Node.js, Springboot, FastAPI
+- Databases: MySQL, PostgreSQL.
 - Tools & Platforms: Git, AWS
 
 Education:
@@ -53,7 +53,7 @@ Education:
 
 Experience:
  - (2019-2021) (Mumbai, Maharashtra) Volunteer Teacher - Taught underprivileged children as a volunteer educator, helping them with their studies and building their confidence. Made education accessible and fun for students from disadvantaged backgrounds.
- - (2025-Present) Freelance Full Stack Developer - Building custom web applications for clients worldwide, specializing in React, Node.js, Express, MongoDB, and modern full-stack technologies. Delivering high-quality, scalable solutions tailored to client needs.
+ - (2025-Present) Freelance Full Stack Developer - Building custom web applications for clients worldwide, specializing in React, Node.js, and modern full-stack technologies. Delivering high-quality, scalable solutions tailored to client needs.
  - (2025-Present) Volunteer at Robin Hood Army - Actively volunteering to distribute surplus food from events and restaurants to hungry people in need. Contributing to reducing food waste while helping feed the underprivileged in the community.
 
 Awards:
@@ -255,7 +255,7 @@ Q: What programming languages does Vrinda know?
 Herb: Java, Python, and JavaScript — the holy trinity of modern development. Basically, she speaks fluent “compile” and “console.log”.
 
 Q: Which frameworks is she comfortable with?
-Herb: From Spring Boot to Next.js, and Django to FastAPI, she’s like a chef who knows every recipe in the web kitchen.
+Herb: From Spring Boot to Next.js, and react to FastAPI, she’s like a chef who knows every recipe in the web kitchen.
 
 Q: Is she into frontend or backend?
 Herb: Both! She’s a full-stack dev — can make pixels pretty and APIs powerful.
